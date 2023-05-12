@@ -1,10 +1,8 @@
 import math
 
-class SmiteGod:
+class GodBaseStats:
     
-    def __init__(self,
-                 god_name:str, god_id:int, god_title:str, god_role:str, god_type_range:str, 
-                 god_type_power:str, god_pantheon:str, health:int, health_level:int, 
+    def __init__(self, health:int, health_level:int, 
                  health_per_five:float, health_per_five_level:float, mana:int, mana_level:int,
                  mana_per_five:float, mana_per_five_level:float, movement_speed:int, attack_speed:float, 
                  attack_speed_level:float, physical_power:int, physical_power_level:float, 
@@ -12,16 +10,6 @@ class SmiteGod:
                  physical_protection_level:float, magical_protection:float, 
                  magical_protection_level:float, basic_attack:float, basic_attack_level:float, 
                  basic_attack_scaling:float, basic_attack_type:str):
-
-        # God information
-        self.god_name                   = god_name
-        self.god_id                     = god_id
-        self.god_title                  = god_title
-        self.god_role                   = god_role
-        self.god_type_range             = god_type_range
-        self.god_type_power             = god_type_power
-        self.god_pantheon               = god_pantheon
-        self.god_level                  = 1
         
         # Resource stats
         self.health                     = health
@@ -52,17 +40,40 @@ class SmiteGod:
         self.basic_attack_level         = basic_attack_level
         self.basic_attack_scaling       = basic_attack_scaling
         self.basic_attack_type          = basic_attack_type
+
+# ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class SmiteGod:
+    
+    def __init__(self,
+                 god_name:str, god_id:int, god_title:str, god_role:str, god_type_range:str, 
+                 god_type_power:str, god_pantheon:str, base_stats:GodBaseStats):
+
+        # God information
+        self.god_name                   = god_name
+        self.god_id                     = god_id
+        self.god_title                  = god_title
+        self.god_role                   = god_role
+        self.god_type_range             = god_type_range
+        self.god_type_power             = god_type_power
+        self.god_pantheon               = god_pantheon
+        self.god_level                  = 1
+        
+        self.base_stats                 = base_stats
         
         # Extra checks
         self.custom_resource            = 0
     
     
     def has_custom_resource(self):
-        if int(self.mana) <= 0:
+        if int(self.base_stats.mana) <= 0:
             self.custom_resource = 1
         
         return 0
     
+    '''
+        Prints out the god information in a way that displays most of the data. Primarily for debugging
+    '''
     def print_god_info(self):
         print(f"""
               {self.god_name} is a {self.god_pantheon} god who is a {self.god_type_power}, {self.god_type_range}, {self.god_role}.
@@ -71,6 +82,10 @@ class SmiteGod:
               physical and magical protection respectively. They also have {self.basic_attack} basic attack power at level one, scaling with {round(self.basic_attack_scaling*100)}% of their {self.basic_attack_type}.
               """)
     
+    '''
+        Calculates and returns the specific stat given the god's base stat, stat per level, and level.
+        Will likely be depreciated or changed once items become a factor.
+    '''
     def calculate_base_stat(self, stat:str):
         if (stat == "movement_speed"): 
             if self.god_level >= 8:
@@ -87,3 +102,11 @@ class SmiteGod:
         
         else:
             return round(getattr(self, stat) + (getattr(self, stat+"_level") * self.god_level), 2)
+
+# ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class GodAbility:
+    print("etc")
+    
+
+# ----------------------------------------------------------------------------------------------------------------------------------------------------------

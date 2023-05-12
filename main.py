@@ -1,4 +1,4 @@
-import gods
+import god_information
 import load_data as load
 
 godloader = load.LoadGod("smitegod.json")
