@@ -61,6 +61,12 @@ class SmiteGod:
         
         self.base_stats                 = base_stats
         
+        self.ability_one                = None
+        self.ability_two                = None
+        self.ability_three              = None
+        self.ability_four               = None
+        self.passive                    = None
+        
         # Extra checks
         self.custom_resource            = 0
     
@@ -77,7 +83,7 @@ class SmiteGod:
     def print_god_info(self):
         print(f"""
               {self.god_name} is a {self.god_pantheon} god who is a {self.god_type_power}, {self.god_type_range}, {self.god_role}.
-              At level one they have {self.health} HP, {self.mana} mana, {self.movement_speed} move speed, and {self.attack_speed} attack speed.
+              At level one they have {self.health} HP, {self.mana} mana, {self.base_stats.movement_speed} move speed, and {self.attack_speed} attack speed.
               They start with {self.physical_power} physical power and {self.magical_power} magical power, as well as {self.physical_protection} and {self.magical_protection}
               physical and magical protection respectively. They also have {self.basic_attack} basic attack power at level one, scaling with {round(self.basic_attack_scaling*100)}% of their {self.basic_attack_type}.
               """)
@@ -89,24 +95,18 @@ class SmiteGod:
     def calculate_base_stat(self, stat:str):
         if (stat == "movement_speed"): 
             if self.god_level >= 8:
-                if (self.movement_speed + (self.movement_speed * (self.movement_speed_level * 8))) >= 540.5:
-                    return math.floor((self.movement_speed + (self.movement_speed * (self.movement_speed_level * 8)) * 0.5))
+                if (self.base_stats.movement_speed + (self.base_stats.movement_speed * (self.base_stats.movement_speed_level * 8))) >= 540.5:
+                    return math.floor((self.base_stats.movement_speed + (self.base_stats.movement_speed * (self.base_stats.movement_speed_level * 8)) * 0.5))
                 
-                elif (self.movement_speed + (self.movement_speed * (self.movement_speed_level * 8))) > 457:
-                    return math.floor((self.movement_speed + (self.movement_speed * (self.movement_speed_level * 8)) * 0.8))
+                elif (self.base_stats.movement_speed + (self.base_stats.movement_speed * (self.base_stats.movement_speed_level * 8))) > 457:
+                    return math.floor((self.base_stats.movement_speed + (self.base_stats.movement_speed * (self.base_stats.movement_speed_level * 8)) * 0.8))
                 
-                return math.floor((self.movement_speed + (self.movement_speed * (self.movement_speed_level * 8))))
+                return math.floor((self.base_stats.movement_speed + (self.base_stats.movement_speed * (self.base_stats.movement_speed_level * 8))))
         
         elif (stat == "attack_speed"):
-            return round(getattr(self, stat) + ((getattr(self, stat) * getattr(self, stat+"_level")) * self.god_level), 2)
+            return round((self.base_stats.__getattribute__(stat) + (self.base_stats.__getattribute__(stat) * self.base_stats.__getattribute__(stat+"_level")) * self.god_level), 2)
         
         else:
             return round(getattr(self, stat) + (getattr(self, stat+"_level") * self.god_level), 2)
-
-# ----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-class GodAbility:
-    print("etc")
-    
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------
