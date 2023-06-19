@@ -1,4 +1,7 @@
+#
+# ! Depreciated for now, saved for reference
 
+"""
 class AbilityBaseDamage:
     def __init__(self, damage:list, damage_scaling:float, damage_type:str) -> None:
         self.damage         = damage
@@ -85,3 +88,4 @@ class GodAbility:
     
     def set_ability_conditions(self):
         print("Wacky")
+"""

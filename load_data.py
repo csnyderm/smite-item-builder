@@ -1,6 +1,22 @@
 import json
-import god_information
+import god
+import ability
 import re
+
+
+def load_god_information(current_god) -> god.GodInformation:
+    """Loads in the information for specific god"""
+    current_information = None
+    try:
+        type_list = current_god["Type"].split(", ")
+        current_information = god.GodInformation(current_god["Name"], current_god["id"], current_god["Title"], 
+                                                 current_god["Roles"], type_list[0], type_list[1], current_god["Pantheon"])
+    
+    except IndexError:
+        current_information = god.GodInformation(current_god["Name"], current_god["id"], current_god["Title"], 
+                                                 current_god["Roles"], type_list[0], "Ranged", current_god["Pantheon"])
+    
+    return current_information
 
 class LoadGod:
     # Might be good to generalize this into a generalized loader class

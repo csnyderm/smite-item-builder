@@ -1,3 +1,7 @@
+#
+# ! Depreciated, saved for reference
+
+"""
 import math
 
 class GodBaseStats:
@@ -81,12 +85,12 @@ class SmiteGod:
         Prints out the god information in a way that displays most of the data. Primarily for debugging
     '''
     def print_god_info(self):
-        print(f"""
+        print(f'''
               {self.god_name} is a {self.god_pantheon} god who is a {self.god_type_power}, {self.god_type_range}, {self.god_role}.
               At level one they have {self.health} HP, {self.mana} mana, {self.base_stats.movement_speed} move speed, and {self.attack_speed} attack speed.
               They start with {self.physical_power} physical power and {self.magical_power} magical power, as well as {self.physical_protection} and {self.magical_protection}
               physical and magical protection respectively. They also have {self.basic_attack} basic attack power at level one, scaling with {round(self.basic_attack_scaling*100)}% of their {self.basic_attack_type}.
-              """)
+              ''')
     
     '''
         Calculates and returns the specific stat given the god's base stat, stat per level, and level.
@@ -110,3 +114,4 @@ class SmiteGod:
             return round(getattr(self, stat) + (getattr(self, stat+"_level") * self.god_level), 2)
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------
+"""
