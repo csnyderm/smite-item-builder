@@ -4,19 +4,60 @@ import ability
 import re
 
 
+# ? == Region: Load God Information
+
 def load_god_information(current_god) -> god.GodInformation:
-    """Loads in the information for specific god"""
+    """Loads in the information for given god"""
     current_information = None
     try:
         type_list = current_god["Type"].split(", ")
         current_information = god.GodInformation(current_god["Name"], current_god["id"], current_god["Title"], 
                                                  current_god["Roles"], type_list[0], type_list[1], current_god["Pantheon"])
     
+    # Persephone had an ongoing issue with her classifications as "Magical, Ranged". Should also cover edge cases for now just in case
     except IndexError:
         current_information = god.GodInformation(current_god["Name"], current_god["id"], current_god["Title"], 
                                                  current_god["Roles"], type_list[0], "Ranged", current_god["Pantheon"])
     
     return current_information
+
+# ? == Load God Information End
+
+
+# ? == Region: Load Base Stats
+
+def load_base_stats(current_god) -> list:
+    """Loads in all base stats for a given god"""
+    
+    # ! Currently have to manually load in base stat names for pairs
+    stat_pairs = {
+        'Health':'HealthPerLevel',
+        'HealthPerFive':'HP5PerLevel',
+        'Mana':'ManaPerLevel',
+        'ManaPerFive':'MP5PerLevel',
+        'Speed':0.3,
+        'AttackSpeed':'AttackSpeedPerLevel',
+        'PhysicalPower':'PhysicalPowerPerLevel',
+        'MagicalPower':'MagicalPowerPerLevel',
+        'PhysicalProtection':'PhysicalProtectionPerLevel',
+        'MagicalProtection':'MagicalProtectionPerLevel'
+    }
+    
+    all_base_stats = []
+    
+    for key in stat_pairs.keys():
+        # Speed is the only case but in case there is more in the future
+        if type(stat_pairs.get(key)) != str:
+            current_stat = god.GodBaseStat(key, current_god[key], stat_pairs.get(key))
+            all_base_stats.append(current_stat)
+        
+        else:
+            current_stat = god.GodBaseStat(key, current_god[key], current_god[stat_pairs.get(key)])
+            all_base_stats.append(current_stat)
+    
+    return all_base_stats
+
+# ? == Load Base Stats End
 
 class LoadGod:
     # Might be good to generalize this into a generalized loader class
