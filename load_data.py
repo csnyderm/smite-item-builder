@@ -59,6 +59,83 @@ def load_base_stats(current_god) -> list:
 
 # ? == Load Base Stats End
 
+
+# ? == Region: Parse Basic Attack
+
+def parse_basic_attack(basic_attack_str) -> list:
+    regex_definitions = [
+        re.compile('^\d{1,3}.?\d'),     # Basic attack damage
+        re.compile('(\d.?\d?/Lvl)'),    # Damage per level
+        re.compile('\d{1,3}%'),         # Scaling
+        re.compile('\w{7,8}'),          # Damage Type
+        # Add hit chain
+        ]
+    
+    basic_attack_info = []
+        
+    # ! If we have multiple aa information (Izanami), combine them into one
+    if basic_attack_str.count('; '):
+        basic_attack_str = basic_attack_str.split('; ')
+        
+        basic_attack_info.append(
+            float(regex_definitions[0].findall(basic_attack_info[0])) + 
+            float(regex_definitions[0].findall(basic_attack_info[1]))
+        ) # Combine the base power into one
+        
+        basic_attack_info.append(
+            float(regex_definitions[1].findall(basic_attack_info[0]).split('/')[0]) + 
+            float(regex_definitions[1].findall(basic_attack_info[1]).split('/')[0])
+        ) # Combine per level into one
+        
+        basic_attack_info.append(
+            float(regex_definitions[2].findall(basic_attack_info[0]).replace('%',''))/100 + 
+            float(regex_definitions[2].findall(basic_attack_info[1]).replace('%',''))/100
+        ) # Combine scaling
+        
+        basic_attack_info.append(
+            regex_definitions[3].findall(basic_attack_info[0])
+        )
+    
+    # ! Otherwise just take each regex
+    else:
+        basic_attack_info.append(
+            float(regex_definitions[0].findall(basic_attack_info))
+        )
+        
+        basic_attack_info.append(
+            float(regex_definitions[1].findall(basic_attack_info).split('/')[0])
+        )
+        
+        basic_attack_info.append(
+            float(regex_definitions[2].findall(basic_attack_info).replace('%',''))/100
+        )
+        
+        basic_attack_info.append(
+            regex_definitions[3].findall(basic_attack_info)
+        )
+    
+    return basic_attack_info
+
+# ? == Basic Attack Regex End
+
+
+# ? == Region: Load Basic Attack
+
+def load_basic_attack(current_god) -> god.GodBasicAttack:
+    # ["basicAttack"]["itemDescription"]["menuitems"][0]["value"]
+    ## [0] refers to the basic attack damage information
+    ## [1] refers to the basic attack progression (hit chain) information
+        
+    parsed_info = parse_basic_attack(current_god["basicAttack"]["itemDescription"]["menuitems"][0]["value"])
+    current_basic_attack = god.GodBasicAttack(
+        parsed_info[0],parsed_info[1],parsed_info[2],parsed_info[3],
+        current_god["basicAttack"]["itemDescription"]["menuitems"][1]["value"]
+    )
+    
+    return current_basic_attack
+
+# ? == Load Basic Attack End
+
 class LoadGod:
     # Might be good to generalize this into a generalized loader class
     def __init__(self, god_file):
@@ -155,13 +232,3 @@ class LoadGod:
         
         except:
             print("Error somewhere outside god creation, replace with finally")
-
-# ----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-class LoadAbilities:
-    print('yada')
-
-# ----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-class LoadItem:
-    print('yada')
