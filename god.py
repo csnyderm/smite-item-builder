@@ -14,6 +14,14 @@ class GodInformation:
         self.range_type     = range_type
         self.power_type     = power_type
         self.pantheon       = pantheon
+    
+    def __eq__(self, comparison):
+        # If they have the same class, we check name and id
+        ## Name and id should be critical values to identifying a god more so
+        ## than the other information in the class from a code perspective
+        if isinstance(self, comparison.__class__):
+            return (self.name == comparison.name) and (self.id == comparison.id)
+        return False
 
 # ? == God Information End
 

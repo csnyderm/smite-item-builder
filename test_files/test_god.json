@@ -1,0 +1,444 @@
+[{
+    "Ability1": "Shield of Achilles",
+    "Ability2": "Radiant Glory",
+    "Ability3": "Combat Dodge",
+    "Ability4": "Fatal Strike",
+    "Ability5": "Gift of the Gods",
+    "AbilityId1": 15676,
+    "AbilityId2": 15677,
+    "AbilityId3": 15679,
+    "AbilityId4": 15680,
+    "AbilityId5": 15678,
+    "Ability_1": {
+      "Description": {
+        "itemDescription": {
+          "cooldown": "15s",
+          "cost": "60/65/70/75/80",
+          "description": "Achilles punches forward with the edge of his Shield, inflicting massive damage and stunning enemy targets hit by the impact. The force of his punch continues to radiate past his initial target area, dealing 85% damage to targets farther away.",
+          "menuitems": [
+            {
+              "description": "Ability:",
+              "value": "Cone"
+            },
+            {
+              "description": "Affects:",
+              "value": "Enemies"
+            },
+            {
+              "description": "Damage:",
+              "value": "Physical"
+            },
+            {
+              "description": "Range:",
+              "value": "50"
+            }
+          ],
+          "rankitems": [
+            {
+              "description": "Damage:",
+              "value": "100/155/210/265/320 (90% of your Physical Power)"
+            },
+            {
+              "description": "Stun Duration:",
+              "value": "1s"
+            }
+          ]
+        }
+      },
+      "Id": 15676,
+      "Summary": "Shield of Achilles",
+      "URL": "https://web2.hirez.com/smite/god-abilities/shield-of-achilles.jpg"
+    },
+    "Ability_2": {
+      "Description": {
+        "itemDescription": {
+          "cooldown": "10s",
+          "cost": "40/45/50/55/60",
+          "description": "Achilles is blessed by the gods, giving him bonus Physical Power, Protections, and Crowd Control Reduction for 6 seconds. While this blessing is active, Achilles will heal himself upon successfully damaging enemies with abilities.",
+          "menuitems": [
+            {
+              "description": "Ability:",
+              "value": "Buff"
+            },
+            {
+              "description": "Affects:",
+              "value": "Self"
+            }
+          ],
+          "rankitems": [
+            {
+              "description": "Heal:",
+              "value": "20/23/26/29/32 (10% of your Physical Power)"
+            },
+            {
+              "description": "Max Heals per Ability:",
+              "value": "2/2/3/3/4"
+            },
+            {
+              "description": "Physical Power:",
+              "value": "+6/7/8/9/10%"
+            },
+            {
+              "description": "Protections:",
+              "value": "+10/12.5/15/17.5/20%"
+            },
+            {
+              "description": "Crowd Control Reduction:",
+              "value": "20%"
+            }
+          ]
+        }
+      },
+      "Id": 15677,
+      "Summary": "Radiant Glory",
+      "URL": "https://web2.hirez.com/smite/god-abilities/radiant-glory.jpg"
+    },
+    "Ability_3": {
+      "Description": {
+        "itemDescription": {
+          "cooldown": "14/13/12/11/10s",
+          "cost": "24/28/32/36/40",
+          "description": "Achilles dodges his enemies' attacks before striking them in swift response. If Achilles successfully hits an enemy god with this strike, Achilles can use this ability once more before it goes on Cooldown.",
+          "menuitems": [
+            {
+              "description": "Ability:",
+              "value": "Dash"
+            },
+            {
+              "description": "Affects:",
+              "value": "Enemies"
+            },
+            {
+              "description": "Damage:",
+              "value": "Physical"
+            },
+            {
+              "description": "Range:",
+              "value": "35"
+            }
+          ],
+          "rankitems": [
+            {
+              "description": "Damage:",
+              "value": "50/85/120/155/190 (+45% of your Physical Power)"
+            }
+          ]
+        }
+      },
+      "Id": 15679,
+      "Summary": "Combat Dodge",
+      "URL": "https://web2.hirez.com/smite/god-abilities/combat-dodge.jpg"
+    },
+    "Ability_4": {
+      "Description": {
+        "itemDescription": {
+          "cooldown": "90s",
+          "cost": "80/85/90/95/100",
+          "description": "Achilles dashes forward and attacks. While dashing, Achilles will pass through minions, stop and hit the first enemy god he encounters, dealing damage to all he hits and executing gods below 30% Health. If Achilles kills a god with this ability, he can use it again, up to 5 times. As Achilles successfully Executes his enemies, he becomes more reckless in combat and leaves his heel exposed. Achilles will become more susceptible to damage, stacking up to 5 times.",
+          "menuitems": [
+            {
+              "description": "Ability:",
+              "value": "Dash"
+            },
+            {
+              "description": "Affects:",
+              "value": "Enemies"
+            },
+            {
+              "description": "Damage:",
+              "value": "Physical"
+            },
+            {
+              "description": "Range:",
+              "value": "35"
+            }
+          ],
+          "rankitems": [
+            {
+              "description": "Damage:",
+              "value": "180/270/360/450/540 (100% of your Physical Power)"
+            },
+            {
+              "description": "Execute Threshold:",
+              "value": "30%"
+            },
+            {
+              "description": "Damage Taken Increase:",
+              "value": "10%"
+            }
+          ]
+        }
+      },
+      "Id": 15680,
+      "Summary": "Fatal Strike",
+      "URL": "https://web2.hirez.com/smite/god-abilities/fatal-strike.jpg"
+    },
+    "Ability_5": {
+      "Description": {
+        "itemDescription": {
+          "cooldown": "",
+          "cost": "",
+          "description": "Achilles adapts to the tide of Battle. While in the Fountain, Achilles can choose to wear armor, granting him bonus Health and Protections, or forgo it, granting him bonus Movement Speed and Physical Power. To swap, use Achilles' Basic Attack while the Passive targeter is active. ",
+          "menuitems": [
+            {
+              "description": "Ability:",
+              "value": "Passive"
+            }
+          ],
+          "rankitems": [
+            {
+              "description": "Health Bonus:",
+              "value": "25 +15 per Level"
+            },
+            {
+              "description": "Protections Bonus:",
+              "value": "5 +2 per Level"
+            },
+            {
+              "description": "Movement Speed Bonus:",
+              "value": "1% +.25% per Level"
+            },
+            {
+              "description": "Physical Power Bonus:",
+              "value": "3 +2 per Level"
+            }
+          ]
+        }
+      },
+      "Id": 15678,
+      "Summary": "Gift of the Gods",
+      "URL": "https://web2.hirez.com/smite/god-abilities/gift-of-the-gods.jpg"
+    },
+    "AttackSpeed": 0.95,
+    "AttackSpeedPerLevel": 0.0125,
+    "AutoBanned": "n",
+    "Cons": "",
+    "HP5PerLevel": 0.75,
+    "Health": 475,
+    "HealthPerFive": 9,
+    "HealthPerLevel": 85,
+    "Lore": "King Agamemnon brought his fury to bear against gilded Troy, for Prince Paris had stolen his Helen, his wife, whose beauty rivaled that of Athena and Aphrodite. To famed Achilles, invincible warrior, the king gave command of a thousand ships.\\n\\nAcross stormy seas and salted beach, soldiers sieged the city. Arrow and stone, blade and barb bounced from Achilles’ skin. Bathed as a babe in the River Styx by his Nereid mother, his hide was hardened, imperviously made. Through every charge, every death-defying battle, Achilles was at the fore. Troy hung poised to crumble.\\n\\nUntil Agamemnon gave slight to the mighty myrmidon. In grave offense, Achilles pulled his forces from the field. Hector, boldest, bravest, eldest of the Trojan princes seized the chance to push the Greeks to the sea. Water’s reflection mirrored scorching sails as Hector fired their ships. All seemed lost until Achilles rose to meet him. Fierce and fast the two titans fought, but Hector’s spear felled Achilles fair. Though Patroclus, it was, in the armor of Achilles, not Achilles who lay dead.\\n\\nWrathful at the loss of his faithful friend, Achilles donned armor newly-made and challenged Hector alone. Spear and blade and amor rang, but Achilles could not be harmed. Hector, prince of Troy, died in battle that day.\\n\\nParis, brother lost, tearful-eyed, let arrow loose, guided by divine envy. For there were Gods that could not suffer Achilles to survive. Straight and true the arrow flew and harpooned Achilles’ heel, where his mother held him when submerged. The wound was deep, his weakness found, Achilles met his end.\\n\\nA decade thence, from Hades’ depths, Achilles has been drawn. Armored now, upon the heel, revenge his only aim. For envious Gods stole from him his glory and his life. Now they tremble at the wrath of the man who cannot be harmed.",
+    "MP5PerLevel": 0.39,
+    "MagicProtection": 30,
+    "MagicProtectionPerLevel": 0.9,
+    "MagicalPower": 0,
+    "MagicalPowerPerLevel": 0,
+    "Mana": 205,
+    "ManaPerFive": 4.7,
+    "ManaPerLevel": 35,
+    "Name": "Achilles",
+    "OnFreeRotation": "",
+    "Pantheon": "Greek",
+    "PhysicalPower": 38,
+    "PhysicalPowerPerLevel": 2,
+    "PhysicalProtection": 17,
+    "PhysicalProtectionPerLevel": 3,
+    "Pros": "High Single Target Damage, High Mobility",
+    "Roles": "Warrior",
+    "Speed": 370,
+    "Title": "Hero of the Trojan War",
+    "Type": "Melee, Physical",
+    "abilityDescription1": {
+      "itemDescription": {
+        "cooldown": "15s",
+        "cost": "60/65/70/75/80",
+        "description": "Achilles punches forward with the edge of his Shield, inflicting massive damage and stunning enemy targets hit by the impact. The force of his punch continues to radiate past his initial target area, dealing 85% damage to targets farther away.",
+        "menuitems": [
+          {
+            "description": "Ability:",
+            "value": "Cone"
+          },
+          {
+            "description": "Affects:",
+            "value": "Enemies"
+          },
+          {
+            "description": "Damage:",
+            "value": "Physical"
+          },
+          {
+            "description": "Range:",
+            "value": "50"
+          }
+        ],
+        "rankitems": [
+          {
+            "description": "Damage:",
+            "value": "100/155/210/265/320 (90% of your Physical Power)"
+          },
+          {
+            "description": "Stun Duration:",
+            "value": "1s"
+          }
+        ]
+      }
+    },
+    "abilityDescription2": {
+      "itemDescription": {
+        "cooldown": "10s",
+        "cost": "40/45/50/55/60",
+        "description": "Achilles is blessed by the gods, giving him bonus Physical Power, Protections, and Crowd Control Reduction for 6 seconds. While this blessing is active, Achilles will heal himself upon successfully damaging enemies with abilities.",
+        "menuitems": [
+          {
+            "description": "Ability:",
+            "value": "Buff"
+          },
+          {
+            "description": "Affects:",
+            "value": "Self"
+          }
+        ],
+        "rankitems": [
+          {
+            "description": "Heal:",
+            "value": "20/23/26/29/32 (10% of your Physical Power)"
+          },
+          {
+            "description": "Max Heals per Ability:",
+            "value": "2/2/3/3/4"
+          },
+          {
+            "description": "Physical Power:",
+            "value": "+6/7/8/9/10%"
+          },
+          {
+            "description": "Protections:",
+            "value": "+10/12.5/15/17.5/20%"
+          },
+          {
+            "description": "Crowd Control Reduction:",
+            "value": "20%"
+          }
+        ]
+      }
+    },
+    "abilityDescription3": {
+      "itemDescription": {
+        "cooldown": "14/13/12/11/10s",
+        "cost": "24/28/32/36/40",
+        "description": "Achilles dodges his enemies' attacks before striking them in swift response. If Achilles successfully hits an enemy god with this strike, Achilles can use this ability once more before it goes on Cooldown.",
+        "menuitems": [
+          {
+            "description": "Ability:",
+            "value": "Dash"
+          },
+          {
+            "description": "Affects:",
+            "value": "Enemies"
+          },
+          {
+            "description": "Damage:",
+            "value": "Physical"
+          },
+          {
+            "description": "Range:",
+            "value": "35"
+          }
+        ],
+        "rankitems": [
+          {
+            "description": "Damage:",
+            "value": "50/85/120/155/190 (+45% of your Physical Power)"
+          }
+        ]
+      }
+    },
+    "abilityDescription4": {
+      "itemDescription": {
+        "cooldown": "90s",
+        "cost": "80/85/90/95/100",
+        "description": "Achilles dashes forward and attacks. While dashing, Achilles will pass through minions, stop and hit the first enemy god he encounters, dealing damage to all he hits and executing gods below 30% Health. If Achilles kills a god with this ability, he can use it again, up to 5 times. As Achilles successfully Executes his enemies, he becomes more reckless in combat and leaves his heel exposed. Achilles will become more susceptible to damage, stacking up to 5 times.",
+        "menuitems": [
+          {
+            "description": "Ability:",
+            "value": "Dash"
+          },
+          {
+            "description": "Affects:",
+            "value": "Enemies"
+          },
+          {
+            "description": "Damage:",
+            "value": "Physical"
+          },
+          {
+            "description": "Range:",
+            "value": "35"
+          }
+        ],
+        "rankitems": [
+          {
+            "description": "Damage:",
+            "value": "180/270/360/450/540 (100% of your Physical Power)"
+          },
+          {
+            "description": "Execute Threshold:",
+            "value": "30%"
+          },
+          {
+            "description": "Damage Taken Increase:",
+            "value": "10%"
+          }
+        ]
+      }
+    },
+    "abilityDescription5": {
+      "itemDescription": {
+        "cooldown": "",
+        "cost": "",
+        "description": "Achilles adapts to the tide of Battle. While in the Fountain, Achilles can choose to wear armor, granting him bonus Health and Protections, or forgo it, granting him bonus Movement Speed and Physical Power. To swap, use Achilles' Basic Attack while the Passive targeter is active. ",
+        "menuitems": [
+          {
+            "description": "Ability:",
+            "value": "Passive"
+          }
+        ],
+        "rankitems": [
+          {
+            "description": "Health Bonus:",
+            "value": "25 +15 per Level"
+          },
+          {
+            "description": "Protections Bonus:",
+            "value": "5 +2 per Level"
+          },
+          {
+            "description": "Movement Speed Bonus:",
+            "value": "1% +.25% per Level"
+          },
+          {
+            "description": "Physical Power Bonus:",
+            "value": "3 +2 per Level"
+          }
+        ]
+      }
+    },
+    "basicAttack": {
+      "itemDescription": {
+        "cooldown": "",
+        "cost": "",
+        "description": "",
+        "menuitems": [
+          {
+            "description": "Damage:",
+            "value": "38 + 2/Lvl (+100% of Physical Power)"
+          },
+          {
+            "description": "Progression:",
+            "value": "None"
+          }
+        ],
+        "rankitems": []
+      }
+    },
+    "godAbility1_URL": "https://web2.hirez.com/smite/god-abilities/shield-of-achilles.jpg",
+    "godAbility2_URL": "https://web2.hirez.com/smite/god-abilities/radiant-glory.jpg",
+    "godAbility3_URL": "https://web2.hirez.com/smite/god-abilities/combat-dodge.jpg",
+    "godAbility4_URL": "https://web2.hirez.com/smite/god-abilities/fatal-strike.jpg",
+    "godAbility5_URL": "https://web2.hirez.com/smite/god-abilities/gift-of-the-gods.jpg",
+    "godCard_URL": "https://web2.hirez.com/smite/god-cards/achilles.jpg",
+    "godIcon_URL": "https://web2.hirez.com/smite/god-icons/achilles.jpg",
+    "id": 3492,
+    "latestGod": "n",
+    "ret_msg": null
+  }]

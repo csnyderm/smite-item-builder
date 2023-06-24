@@ -11,12 +11,12 @@ def load_god_information(current_god) -> god.GodInformation:
     current_information = None
     try:
         type_list = current_god["Type"].split(", ")
-        current_information = god.GodInformation(current_god["Name"], current_god["id"], current_god["Title"], 
+        current_information = god.GodInformation(current_god["Name"], int(current_god["id"]), current_god["Title"], 
                                                  current_god["Roles"], type_list[0], type_list[1], current_god["Pantheon"])
     
     # Persephone had an ongoing issue with her classifications as "Magical, Ranged". Should also cover edge cases for now just in case
     except IndexError:
-        current_information = god.GodInformation(current_god["Name"], current_god["id"], current_god["Title"], 
+        current_information = god.GodInformation(current_god["Name"], int(current_god["id"]), current_god["Title"], 
                                                  current_god["Roles"], type_list[0], "Ranged", current_god["Pantheon"])
     
     return current_information
