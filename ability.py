@@ -118,10 +118,9 @@ class Charge:
 class AbilityInformation:
     """Information about the ability not related to damage"""
     def __init__(self,
-                 name:str, description:list, cooldown:list, 
-                 cost:list) -> None:
+                 name:str, description:str, cooldown:list, 
+                 cost:str) -> None:
         self.ability_name           = name
-        self.ability_rank           = 0
         self.ability_description    = description
         self.ability_cooldown       = cooldown
         self.ability_cost           = cost
@@ -136,10 +135,14 @@ class Ability:
     def __init__(self,
                  information:AbilityInformation) -> None:
         self.information        = information
+        self.ability_rank       = 0
         self.ability_effects    = []
         
     def add_effect(self) -> None:
         print("Do something")
+    
+    def change_rank(self) -> None:
+        print("Do Something")
         
 
 # ? == Ability End

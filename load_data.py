@@ -26,22 +26,8 @@ def load_god_information(current_god) -> god.GodInformation:
 
 # ? == Region: Load Base Stats
 
-def load_base_stats(current_god) -> list:
+def load_base_stats(current_god, stat_pairs) -> list:
     """Loads in all base stats for a given god"""
-    
-    # ! Currently have to manually load in base stat names for pairs
-    stat_pairs = {
-        'Health':'HealthPerLevel',
-        'HealthPerFive':'HP5PerLevel',
-        'Mana':'ManaPerLevel',
-        'ManaPerFive':'MP5PerLevel',
-        'Speed':0.3,
-        'AttackSpeed':'AttackSpeedPerLevel',
-        'PhysicalPower':'PhysicalPowerPerLevel',
-        'MagicalPower':'MagicalPowerPerLevel',
-        'PhysicalProtection':'PhysicalProtectionPerLevel',
-        'MagicalProtection':'MagicalProtectionPerLevel'
-    }
     
     all_base_stats = []
     
@@ -63,6 +49,7 @@ def load_base_stats(current_god) -> list:
 # ? == Region: Parse Basic Attack
 
 def parse_basic_attack(basic_attack_str) -> list:
+    """Parses the information for a single god's basic attack given a string."""
     regex_definitions = [
         re.compile('^\d{1,3}.?\d'),     # Basic attack damage
         re.compile('(\d.?\d?/Lvl)'),    # Damage per level
@@ -122,6 +109,7 @@ def parse_basic_attack(basic_attack_str) -> list:
 # ? == Region: Load Basic Attack
 
 def load_basic_attack(current_god) -> god.GodBasicAttack:
+    """Loads in the basic attack information for a single god"""
     # ["basicAttack"]["itemDescription"]["menuitems"][0]["value"]
     ## [0] refers to the basic attack damage information
     ## [1] refers to the basic attack progression (hit chain) information
@@ -136,6 +124,82 @@ def load_basic_attack(current_god) -> god.GodBasicAttack:
 
 # ? == Load Basic Attack End
 
+
+# ? == Region: Load Ability Information
+
+def load_ability_info(current_god, current_ability) -> ability.AbilityInformation:
+    """Returns a single ability's information"""
+    cooldown = []
+    
+    # If it's a single value, set the list to all of them
+    if current_god["Description"]["itemDescription"]["cooldown"].count('/'):
+        cd = int(current_god["Description"]["itemDescription"]["cooldown"].replace('s',''))
+        cooldown = [cd, cd, cd, cd, cd]
+    
+    # Otherwise we can just type cast the list
+    else:
+        cd = current_god["Description"]["itemDescription"]["cooldown"].replace('s','').split('/')
+        for val in cd:
+            cooldown.append(int(val))
+    
+    ability_info = ability.AbilityInformation(
+        current_god[current_ability.replace('_','')],
+        current_god["Description"]["itemDescription"]["description"],
+        cooldown,
+        current_god["Description"]["itemDescription"]["cost"]
+        )
+    
+    return ability_info
+
+# ? == Load Ability Info End
+
+
+# ? == Region: Load God
+
+def load_gods(god_file) -> list:
+    """Load in every god from the god_file"""
+    
+    god_list = []
+    
+    # ! Currently have to manually load in base stat names for pairs
+    stat_pairs = {
+        'Health':'HealthPerLevel',
+        'HealthPerFive':'HP5PerLevel',
+        'Mana':'ManaPerLevel',
+        'ManaPerFive':'MP5PerLevel',
+        'Speed':0.3,
+        'AttackSpeed':'AttackSpeedPerLevel',
+        'PhysicalPower':'PhysicalPowerPerLevel',
+        'MagicalPower':'MagicalPowerPerLevel',
+        'PhysicalProtection':'PhysicalProtectionPerLevel',
+        'MagicalProtection':'MagicalProtectionPerLevel'
+    }
+    
+    with open(god_file, 'rb') as god_json:
+        loaded_json = json.load(god_json)
+        
+        for character in loaded_json:
+            loaded_god = god.God(
+                load_god_information(character),
+                load_base_stats(character, stat_pairs),
+                load_basic_attack(character),
+                [], # Fix the abilities later when we have load ability
+                [],
+                [],
+                [],
+                []
+            )
+            
+            god_list.append(character)
+        
+        god_json.close()
+    
+    return god_list
+
+# ? == Load God End
+
+
+"""
 class LoadGod:
     # Might be good to generalize this into a generalized loader class
     def __init__(self, god_file):
@@ -232,3 +296,4 @@ class LoadGod:
         
         except:
             print("Error somewhere outside god creation, replace with finally")
+"""
